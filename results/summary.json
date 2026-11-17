@@ -1,0 +1,351 @@
+{
+  "rows": 9568,
+  "input_count": 4,
+  "target": "PE (MW)",
+  "seed": 20261117,
+  "hot_quantile": 0.8,
+  "hot_threshold_c": 26.79,
+  "split_counts": {
+    "cool_pool": 7653,
+    "tuning_train": 6122,
+    "validation": 1531,
+    "hot_test": 1915
+  },
+  "temperature_quantiles_c": {
+    "50": 20.345,
+    "65": 23.78,
+    "80": 26.79,
+    "90": 29.24,
+    "95": 30.92,
+    "100": 37.11
+  },
+  "architecture": [
+    32,
+    16
+  ],
+  "alpha_grid": [
+    0.0001,
+    0.001,
+    0.01
+  ],
+  "selected": {
+    "relu": {
+      "alpha": 0.0001,
+      "epochs": 1366,
+      "validation_rmse_mw": 3.7679107695074454,
+      "curve_positive_slope_share": 0.0,
+      "curve_total_change_mw": -70.96617165407844,
+      "curve_range_mw": 70.96617165407844
+    },
+    "tanh": {
+      "alpha": 0.0001,
+      "epochs": 991,
+      "validation_rmse_mw": 3.816942291172145,
+      "curve_positive_slope_share": 0.0,
+      "curve_total_change_mw": -56.131239010355216,
+      "curve_range_mw": 56.131239010355216
+    },
+    "linear": {
+      "curve_positive_slope_share": 0.0,
+      "curve_total_change_mw": -73.42582703195416,
+      "curve_range_mw": 73.42582703195416
+    }
+  },
+  "model_metrics": [
+    {
+      "model": "Linear",
+      "model_key": "linear",
+      "partition": "train",
+      "n": 7653,
+      "mae_mw": 3.3671210223506742,
+      "rmse_mw": 4.3321583467540385,
+      "r2": 0.9217608207604089
+    },
+    {
+      "model": "Linear",
+      "model_key": "linear",
+      "partition": "validation",
+      "n": 1531,
+      "mae_mw": 3.3870737049987567,
+      "rmse_mw": 4.246518291398631,
+      "r2": 0.9272862894712187
+    },
+    {
+      "model": "Linear",
+      "model_key": "linear",
+      "partition": "hot_test",
+      "n": 1915,
+      "mae_mw": 5.016820851713731,
+      "rmse_mw": 6.239468090776281,
+      "r2": -0.5082439904408314
+    },
+    {
+      "model": "MLP ReLU",
+      "model_key": "relu",
+      "partition": "train",
+      "n": 7653,
+      "mae_mw": 2.83731055786519,
+      "rmse_mw": 3.7923845095552906,
+      "r2": 0.9400429344607992,
+      "alpha": 0.0001,
+      "epochs": 1366,
+      "validation_rmse_mw": 3.7679107695074454
+    },
+    {
+      "model": "MLP ReLU",
+      "model_key": "relu",
+      "partition": "validation",
+      "n": 1531,
+      "mae_mw": 2.8612976612807803,
+      "rmse_mw": 3.7679107695074454,
+      "r2": 0.94275315884432,
+      "alpha": 0.0001,
+      "epochs": 1366,
+      "validation_rmse_mw": 3.7679107695074454
+    },
+    {
+      "model": "MLP ReLU",
+      "model_key": "relu",
+      "partition": "hot_test",
+      "n": 1915,
+      "mae_mw": 4.165686309876863,
+      "rmse_mw": 5.093266324396899,
+      "r2": -0.005007352756453587,
+      "alpha": 0.0001,
+      "epochs": 1366,
+      "validation_rmse_mw": 3.7679107695074454
+    },
+    {
+      "model": "MLP tanh",
+      "model_key": "tanh",
+      "partition": "train",
+      "n": 7653,
+      "mae_mw": 2.990999425771855,
+      "rmse_mw": 3.9681405286494753,
+      "r2": 0.9343568022584201,
+      "alpha": 0.0001,
+      "epochs": 991,
+      "validation_rmse_mw": 3.816942291172145
+    },
+    {
+      "model": "MLP tanh",
+      "model_key": "tanh",
+      "partition": "validation",
+      "n": 1531,
+      "mae_mw": 2.910782145984546,
+      "rmse_mw": 3.816942291172145,
+      "r2": 0.9412535677520093,
+      "alpha": 0.0001,
+      "epochs": 991,
+      "validation_rmse_mw": 3.816942291172145
+    },
+    {
+      "model": "MLP tanh",
+      "model_key": "tanh",
+      "partition": "hot_test",
+      "n": 1915,
+      "mae_mw": 3.599085985149532,
+      "rmse_mw": 4.454215420121206,
+      "r2": 0.23136722053450876,
+      "alpha": 0.0001,
+      "epochs": 991,
+      "validation_rmse_mw": 3.816942291172145
+    }
+  ],
+  "temperature_error_bins": [
+    {
+      "model": "linear",
+      "partition": "inner_validation",
+      "temperature_bin": "Q00–25",
+      "at_min_c": 2.8,
+      "at_max_c": 13.49,
+      "n": 483,
+      "rmse_mw": 4.320794808975972
+    },
+    {
+      "model": "linear",
+      "partition": "inner_validation",
+      "temperature_bin": "Q25–50",
+      "at_min_c": 13.51,
+      "at_max_c": 20.32,
+      "n": 474,
+      "rmse_mw": 4.160688901949746
+    },
+    {
+      "model": "linear",
+      "partition": "inner_validation",
+      "temperature_bin": "Q50–65",
+      "at_min_c": 20.35,
+      "at_max_c": 23.77,
+      "n": 286,
+      "rmse_mw": 4.216887702123268
+    },
+    {
+      "model": "linear",
+      "partition": "inner_validation",
+      "temperature_bin": "Q65–80",
+      "at_min_c": 23.78,
+      "at_max_c": 26.75,
+      "n": 288,
+      "rmse_mw": 4.289795907391191
+    },
+    {
+      "model": "linear",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q80–90",
+      "at_min_c": 26.79,
+      "at_max_c": 29.23,
+      "n": 954,
+      "rmse_mw": 4.951673645024544
+    },
+    {
+      "model": "linear",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q90–95",
+      "at_min_c": 29.24,
+      "at_max_c": 30.91,
+      "n": 480,
+      "rmse_mw": 6.136846635121125
+    },
+    {
+      "model": "linear",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q95–100",
+      "at_min_c": 30.92,
+      "at_max_c": 37.11,
+      "n": 481,
+      "rmse_mw": 8.293520274295359
+    },
+    {
+      "model": "relu",
+      "partition": "inner_validation",
+      "temperature_bin": "Q00–25",
+      "at_min_c": 2.8,
+      "at_max_c": 13.49,
+      "n": 483,
+      "rmse_mw": 3.7589693414366674
+    },
+    {
+      "model": "relu",
+      "partition": "inner_validation",
+      "temperature_bin": "Q25–50",
+      "at_min_c": 13.51,
+      "at_max_c": 20.32,
+      "n": 474,
+      "rmse_mw": 3.8378050610295715
+    },
+    {
+      "model": "relu",
+      "partition": "inner_validation",
+      "temperature_bin": "Q50–65",
+      "at_min_c": 20.35,
+      "at_max_c": 23.77,
+      "n": 286,
+      "rmse_mw": 3.6797775026623434
+    },
+    {
+      "model": "relu",
+      "partition": "inner_validation",
+      "temperature_bin": "Q65–80",
+      "at_min_c": 23.78,
+      "at_max_c": 26.75,
+      "n": 288,
+      "rmse_mw": 3.7532563561627845
+    },
+    {
+      "model": "relu",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q80–90",
+      "at_min_c": 26.79,
+      "at_max_c": 29.23,
+      "n": 954,
+      "rmse_mw": 4.468961339819042
+    },
+    {
+      "model": "relu",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q90–95",
+      "at_min_c": 29.24,
+      "at_max_c": 30.91,
+      "n": 480,
+      "rmse_mw": 5.017250764048391
+    },
+    {
+      "model": "relu",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q95–100",
+      "at_min_c": 30.92,
+      "at_max_c": 37.11,
+      "n": 481,
+      "rmse_mw": 6.208745808121596
+    },
+    {
+      "model": "tanh",
+      "partition": "inner_validation",
+      "temperature_bin": "Q00–25",
+      "at_min_c": 2.8,
+      "at_max_c": 13.49,
+      "n": 483,
+      "rmse_mw": 3.8884617618553943
+    },
+    {
+      "model": "tanh",
+      "partition": "inner_validation",
+      "temperature_bin": "Q25–50",
+      "at_min_c": 13.51,
+      "at_max_c": 20.32,
+      "n": 474,
+      "rmse_mw": 3.8109075269261363
+    },
+    {
+      "model": "tanh",
+      "partition": "inner_validation",
+      "temperature_bin": "Q50–65",
+      "at_min_c": 20.35,
+      "at_max_c": 23.77,
+      "n": 286,
+      "rmse_mw": 3.711768369682509
+    },
+    {
+      "model": "tanh",
+      "partition": "inner_validation",
+      "temperature_bin": "Q65–80",
+      "at_min_c": 23.78,
+      "at_max_c": 26.75,
+      "n": 288,
+      "rmse_mw": 3.808794731192314
+    },
+    {
+      "model": "tanh",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q80–90",
+      "at_min_c": 26.79,
+      "at_max_c": 29.23,
+      "n": 954,
+      "rmse_mw": 4.228822626365522
+    },
+    {
+      "model": "tanh",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q90–95",
+      "at_min_c": 29.24,
+      "at_max_c": 30.91,
+      "n": 480,
+      "rmse_mw": 4.398830557155055
+    },
+    {
+      "model": "tanh",
+      "partition": "heldout_hot_test",
+      "temperature_bin": "Q95–100",
+      "at_min_c": 30.92,
+      "at_max_c": 37.11,
+      "n": 481,
+      "rmse_mw": 4.920465256945155
+    }
+  ],
+  "fixed_inputs": {
+    "V_cm_Hg": 45.17,
+    "AP_mbar": 1014.01,
+    "RH_percent": 78.31
+  }
+}
